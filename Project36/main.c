@@ -12,7 +12,7 @@
 #include <time.h>
 #include <conio.h>
 
-//ÀÔ·Â¹Þ±â_½Ã°£¿¡¼­ Áß´Ü ¹× ³Ñ¾î°¡±â
+//ìž…ë ¥ë°›ê¸°_ì‹œê°„ì—ì„œ ì¤‘ë‹¨ ë° ë„˜ì–´ê°€ê¸°
 int key(int timer)
 {
     if (_kbhit())
@@ -21,7 +21,7 @@ int key(int timer)
         if (nkey == SPACEBAR)
         {
             printf("\r");
-            printf("³²Àº ½Ã°£ > %02d : %02d", timer / 60, timer % 60);
+            printf("ë‚¨ì€ ì‹œê°„ > %02d : %02d", timer / 60, timer % 60);
             int nkey2 = _getch();
             if (nkey2 == SPACEBAR)
             {
@@ -42,7 +42,7 @@ int key(int timer)
     }
 }
 
-void Time1(int timer)  // Å¸ÀÌ¸Ó ÇÔ¼ö ¼öÁ¤ÇÏ±â
+void Time1(int timer)  // íƒ€ì´ë¨¸ í•¨ìˆ˜ ìˆ˜ì •í•˜ê¸°
 {
     int input;
     while (1)
@@ -52,23 +52,23 @@ void Time1(int timer)  // Å¸ÀÌ¸Ó ÇÔ¼ö ¼öÁ¤ÇÏ±â
         key(timer);
         if (key(timer) == RIGHT)
         {
-            printf("Å¸ÀÌ¸Ó°¡ °­Á¦ Á¾·áµÇ¾ú½À´Ï´Ù\n");
+            printf("íƒ€ì´ë¨¸ê°€ ê°•ì œ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤\n");
             break;
         }
-        printf("³²Àº ½Ã°£ > %02d : %02d ", min, sec);
+        printf("ë‚¨ì€ ì‹œê°„ > %02d : %02d ", min, sec);
         printf("\r");
-        Sleep(1000);    // 1ÃÊ 1000¹Ð¸®ÃÊ Áö¿¬
+        Sleep(1000);    // 1ì´ˆ 1000ë°€ë¦¬ì´ˆ ì§€ì—°
         timer -= 1;
 
         if (timer < 0)
         {
-            printf("Å¸ÀÌ¸Ó Á¾·á\n");
+            printf("íƒ€ì´ë¨¸ ì¢…ë£Œ\n");
             return 0;
         }
     }
 }
 
-//·ÎÁ¦ÆÄ½ºÅ¸ À½¼ºÇÔ¼ö
+//ë¡œì œíŒŒìŠ¤íƒ€ ìŒì„±í•¨ìˆ˜
 void voice()
 {
     char buff[200];
@@ -285,7 +285,7 @@ void voice7()
     system("del read8.vbs > null");
 }
 
-//±èÄ¡ººÀ½¹ä À½¼ºÇÔ¼ö
+//ê¹€ì¹˜ë³¶ìŒë°¥ ìŒì„±í•¨ìˆ˜
 void voice9()
 {
     char buff[200];
@@ -475,7 +475,7 @@ void voice15()
     system("del read15.vbs > null");
 }
 
-//°è¶õÂò À½¼ºÇÔ¼ö
+//ê³„ëž€ì°œ ìŒì„±í•¨ìˆ˜
 void voice16()
 {
     char buff[200];
@@ -560,100 +560,100 @@ void voice23()
 
 }
 */
-//·¹½ÃÇÇ Àç·á Á¦°Å ÇÔ¼ö
+//ë ˆì‹œí”¼ ìž¬ë£Œ ì œê±° í•¨ìˆ˜
 void Eliminate(char* str, char* remove)
 {
     int len;
     char* p_pos;
 
-    while (*str)//null ¹®ÀÚ ³ª¿Ã¶§ ±îÁö ¹Ýº¹
+    while (*str)//null ë¬¸ìž ë‚˜ì˜¬ë•Œ ê¹Œì§€ ë°˜ë³µ
     {
-        if (*str++ == *remove)//ÇöÀç Å½»ö ¹®ÀÚ¿Í ¹®ÀÚ¿­ÀÇ ½ÃÀÛ ºÎºÐÀÌ ÀÏÄ¡ÇÏ´Â °æ¿ì
+        if (*str++ == *remove)//í˜„ìž¬ íƒìƒ‰ ë¬¸ìžì™€ ë¬¸ìžì—´ì˜ ì‹œìž‘ ë¶€ë¶„ì´ ì¼ì¹˜í•˜ëŠ” ê²½ìš°
         {
             for (len = 1; *(remove + len); len++)
             {
                 if (*str++ != *(remove + len))
                     break;
-            }//¹®ÀÚ ½ÃÀÛÁ¡¿¡¼­ ¹®ÀÚ¿­ ³¡³ª´Â ½ÃÁ¡±îÁö Ã£±â
+            }//ë¬¸ìž ì‹œìž‘ì ì—ì„œ ë¬¸ìžì—´ ëë‚˜ëŠ” ì‹œì ê¹Œì§€ ì°¾ê¸°
             if (*(remove + len) == 0)
             {
-                str -= len;//¾ÕÀ¸·Î °£ ÁÖ¼Ò¸¦ ´Ù½Ã ²ø¾î¿À±â
+                str -= len;//ì•žìœ¼ë¡œ ê°„ ì£¼ì†Œë¥¼ ë‹¤ì‹œ ëŒì–´ì˜¤ê¸°
                 for (p_pos = str; *(p_pos + len); p_pos++)
                     *p_pos = *(p_pos + len);
-                *p_pos = '\0'; // null¹®ÀÚ
+                *p_pos = '\0'; // nullë¬¸ìž
             }
         }
     }
 }
 
-//°è¶õÂò ·¹½ÃÇÇ
+//ê³„ëž€ì°œ ë ˆì‹œí”¼
 void gyeran_jjim(int i)
 {
     if (i == 1) {
-        printf("¡Ù¡Ú¡Ù°è¶õÂò ·¹½ÃÇÇ¡Ù¡Ú¡Ù\n\n");
-        printf("·¹½ÃÇÇ Àç·á : °è¶õ, Âü±â¸§, ¹°, »õ¿ìÁ£, ¼ÒÁÖ, ´ç±Ù, ÆÄ\n");
-        char str[] = "·¹½ÃÇÇ Àç·á : °è¶õ, Âü±â¸§, ¹°, »õ¿ìÁ£, ¼ÒÁÖ, ´ç±Ù, ÆÄ";
+        printf("â˜†â˜…â˜†ê³„ëž€ì°œ ë ˆì‹œí”¼â˜†â˜…â˜†\n\n");
+        printf("ë ˆì‹œí”¼ ìž¬ë£Œ : ê³„ëž€, ì°¸ê¸°ë¦„, ë¬¼, ìƒˆìš°ì “, ì†Œì£¼, ë‹¹ê·¼, íŒŒ\n");
+        char str[] = "ë ˆì‹œí”¼ ìž¬ë£Œ : ê³„ëž€, ì°¸ê¸°ë¦„, ë¬¼, ìƒˆìš°ì “, ì†Œì£¼, ë‹¹ê·¼, íŒŒ";
 
-        printf(ANSI_COLOR_YELLOW"Now : °è¶õ 2°³, Âü±â¸§ 1/3¼ù°¥À» ³Ö°í °è¶õÀ» Ç®¾îÁÖ¼¼¿ä."ANSI_COLOR_RESET"\n");
-        printf("NEXT : ¾Ë²öÀ» Á¦°ÅÇÏ±â À§ÇØ °è¶õ¹°À» Ã¼·Î °É·¯ÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW"Now : ê³„ëž€ 2ê°œ, ì°¸ê¸°ë¦„ 1/3ìˆŸê°ˆì„ ë„£ê³  ê³„ëž€ì„ í’€ì–´ì£¼ì„¸ìš”."ANSI_COLOR_RESET"\n");
+        printf("NEXT : ì•Œëˆì„ ì œê±°í•˜ê¸° ìœ„í•´ ê³„ëž€ë¬¼ì„ ì²´ë¡œ ê±¸ëŸ¬ì£¼ì„¸ìš”.\n");
         voice16();
-        char remove1[] = "°è¶õ, Âü±â¸§, ";
+        char remove1[] = "ê³„ëž€, ì°¸ê¸°ë¦„, ";
         Eliminate(str, remove1);
         Time1(120);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW"Now : ¾Ë²öÀ» Á¦°ÅÇÏ±â À§ÇØ °è¶õ¹°À» Ã¼·Î °É·¯ÁÖ¼¼¿ä. "ANSI_COLOR_RESET " \n");
-        printf("NEXT : °è¶õ¹°¿¡ »õ¿ìÁ£ ¹Ý ¼ù°¥À» ³Ö°í ¼¯¾îÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW"Now : ì•Œëˆì„ ì œê±°í•˜ê¸° ìœ„í•´ ê³„ëž€ë¬¼ì„ ì²´ë¡œ ê±¸ëŸ¬ì£¼ì„¸ìš”. "ANSI_COLOR_RESET " \n");
+        printf("NEXT : ê³„ëž€ë¬¼ì— ìƒˆìš°ì “ ë°˜ ìˆŸê°ˆì„ ë„£ê³  ì„žì–´ì£¼ì„¸ìš”.\n");
         voice17();
         Time1(60);
         printf("\n%s\n", str);
 
         /*
-        printf(ANSI_COLOR_YELLOW "Now : °è¶õ¹°¿¡ »õ¿ìÁ£ ¹Ý ¼ù°¥À» ³Ö°í ¼¯¾îÁÖ¼¼¿ä."ANSI_COLOR_RESET "\n");
-        printf("NEXT : °è¶õ¹°¿¡ ¼ÒÁÖ¸¦ ¹Ý ¼ù°¥ ³Ö°í ¼¯¾îÁÖ¼¼¿ä. \n");
+        printf(ANSI_COLOR_YELLOW "Now : ê³„ëž€ë¬¼ì— ìƒˆìš°ì “ ë°˜ ìˆŸê°ˆì„ ë„£ê³  ì„žì–´ì£¼ì„¸ìš”."ANSI_COLOR_RESET "\n");
+        printf("NEXT : ê³„ëž€ë¬¼ì— ì†Œì£¼ë¥¼ ë°˜ ìˆŸê°ˆ ë„£ê³  ì„žì–´ì£¼ì„¸ìš”. \n");
         voice18();
-        char remove2[] = "»õ¿ìÁ£, ";
+        char remove2[] = "ìƒˆìš°ì “, ";
         Eliminate(str, remove2);
         Time1(60);
         printf("\n%s\n", str);
 
 
-        printf(ANSI_COLOR_YELLOW "Now : °è¶õ¹°¿¡ ¼ÒÁÖ¸¦ ¹Ý ¼ù°¥ ³Ö°í ¼¯¾îÁÖ¼¼¿ä." ANSI_COLOR_RESET"\n");
-        printf("NEXT : ¹°Àº °è¶õ ÇÏ³ª´ç 50ml¾¿ ³Ö°í ¼¯¾îÁÖ¼¼¿ä\n");
+        printf(ANSI_COLOR_YELLOW "Now : ê³„ëž€ë¬¼ì— ì†Œì£¼ë¥¼ ë°˜ ìˆŸê°ˆ ë„£ê³  ì„žì–´ì£¼ì„¸ìš”." ANSI_COLOR_RESET"\n");
+        printf("NEXT : ë¬¼ì€ ê³„ëž€ í•˜ë‚˜ë‹¹ 50mlì”© ë„£ê³  ì„žì–´ì£¼ì„¸ìš”\n");
         voice19();
-        char remove3[] = "¼ÒÁÖ, ";
+        char remove3[] = "ì†Œì£¼, ";
         Eliminate(str, remove3);
         Time1(60);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : ¹°Àº °è¶õ ÇÏ³ª´ç 50ml¾¿ ³Ö°í ¼¯¾îÁÖ¼¼¿ä."ANSI_COLOR_RESET "\n");
-        printf("NEXT : °è¶õ¹°¿¡ ´ç±Ù, ÆÄ¸¦ ³Ö¾îÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW "Now : ë¬¼ì€ ê³„ëž€ í•˜ë‚˜ë‹¹ 50mlì”© ë„£ê³  ì„žì–´ì£¼ì„¸ìš”."ANSI_COLOR_RESET "\n");
+        printf("NEXT : ê³„ëž€ë¬¼ì— ë‹¹ê·¼, íŒŒë¥¼ ë„£ì–´ì£¼ì„¸ìš”.\n");
         voice20();
-        char remove4[] = "¹°, ";
+        char remove4[] = "ë¬¼, ";
         Eliminate(str, remove4);
         Time1(60);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW"Now : °è¶õ¹°¿¡ ´ç±Ù, ÆÄ¸¦ ³Ö¾îÁÖ¼¼¿ä,"ANSI_COLOR_RESET "\n");
-        printf("NEXT : ÀüÀÚ·¹ÀÎÁö¸¦ °­À¸·Î 2ºÐ µ¹·ÁÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW"Now : ê³„ëž€ë¬¼ì— ë‹¹ê·¼, íŒŒë¥¼ ë„£ì–´ì£¼ì„¸ìš”,"ANSI_COLOR_RESET "\n");
+        printf("NEXT : ì „ìžë ˆì¸ì§€ë¥¼ ê°•ìœ¼ë¡œ 2ë¶„ ëŒë ¤ì£¼ì„¸ìš”.\n");
         voice21();
-        char remove5[] = "´ç±Ù, ÆÄ, ";
+        char remove5[] = "ë‹¹ê·¼, íŒŒ, ";
         Eliminate(str, remove5);
         Time1(60);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : ÀüÀÚ·¹ÀÎÁö¸¦ °­À¸·Î 2ºÐ µ¹·ÁÁÖ¼¼¿ä."ANSI_COLOR_RESET "\n");
-        printf("NEXT : ¼¯¾îÁØ ´ÙÀ½¿¡ ´Ù½Ã ÀüÀÚ·¹ÀÎÁö¿¡ 3ºÐ µ¹·ÁÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW "Now : ì „ìžë ˆì¸ì§€ë¥¼ ê°•ìœ¼ë¡œ 2ë¶„ ëŒë ¤ì£¼ì„¸ìš”."ANSI_COLOR_RESET "\n");
+        printf("NEXT : ì„žì–´ì¤€ ë‹¤ìŒì— ë‹¤ì‹œ ì „ìžë ˆì¸ì§€ì— 3ë¶„ ëŒë ¤ì£¼ì„¸ìš”.\n");
         voice22();
         Time1(180);
         printf("\n%s\n", str);
 
-        printf("Now : ¼¯¾îÁØ ´ÙÀ½¿¡ ´Ù½Ã ÀüÀÚ·¹ÀÎÁö¿¡ 3ºÐ µ¹·ÁÁÖ¼¼¿ä \n");
+        printf("Now : ì„žì–´ì¤€ ë‹¤ìŒì— ë‹¤ì‹œ ì „ìžë ˆì¸ì§€ì— 3ë¶„ ëŒë ¤ì£¼ì„¸ìš” \n");
         voice23();
         Time1(180);
         printf("\n%s\n", str);
-        printf(ANSI_COLOR_RESET "NEXT : ¿Ï¼º!" ANSI_COLOR_YELLOW "\n");
-        printf(ANSI_COLOR_BLUE "¡Ù¡Ú¡Ù°è¶õÂò ¿Ï¼º¡Ù¡Ú¡Ù" ANSI_COLOR_RESET "\n");
+        printf(ANSI_COLOR_RESET "NEXT : ì™„ì„±!" ANSI_COLOR_YELLOW "\n");
+        printf(ANSI_COLOR_BLUE "â˜†â˜…â˜†ê³„ëž€ì°œ ì™„ì„±â˜†â˜…â˜†" ANSI_COLOR_RESET "\n");
     */
     }
     else
@@ -661,147 +661,147 @@ void gyeran_jjim(int i)
 
 }
 
-//·ÎÁ¦ÆÄ½ºÅ¸ ·¹½ÃÇÇ
+//ë¡œì œíŒŒìŠ¤íƒ€ ë ˆì‹œí”¼
 void roze_pasta(int i)
 {
     if (i == 2) {
-        printf("Space¹Ù ÇÑ¹ø ´©¸¦ ½Ã : Å¸ÀÌ¸Ó Á¤Áö\n");
-        printf("Space¹Ù µÎ¹ø ´©¸¦ ½Ã : Å¸ÀÌ¸Ó ´Ù½Ã ½ÇÇà\n");
-        printf("¿À¸¥ÂÊ ¹æÇâÅ° ´©¸¦ ½Ã : Å¸ÀÌ¸Ó °­Á¦ Á¾·á\n");
+        printf("Spaceë°” í•œë²ˆ ëˆ„ë¥¼ ì‹œ : íƒ€ì´ë¨¸ ì •ì§€\n");
+        printf("Spaceë°” ë‘ë²ˆ ëˆ„ë¥¼ ì‹œ : íƒ€ì´ë¨¸ ë‹¤ì‹œ ì‹¤í–‰\n");
+        printf("ì˜¤ë¥¸ìª½ ë°©í–¥í‚¤ ëˆ„ë¥¼ ì‹œ : íƒ€ì´ë¨¸ ê°•ì œ ì¢…ë£Œ\n");
 
-        printf("¡Ù¡Ú¡Ù·ÎÁ¦ÆÄ½ºÅ¸ ·¹½ÃÇÇ¡Ù¡Ú¡Ù\n\n");
-        printf("·¹½ÃÇÇ Àç·á : »õ¿ì, ¹°, ¼Ò±Ý, ÈÄÃß, °íÃß°¡·ç, ¸¶´Ã, ¾çÆÄ, ·ÎÁ¦¼Ò½º\n");
-        char str[] = "·¹½ÃÇÇ Àç·á : »õ¿ì, ¹°, ¼Ò±Ý, ÈÄÃß, °íÃß°¡·ç, ¸¶´Ã, ¾çÆÄ, ·ÎÁ¦¼Ò½º";
+        printf("â˜†â˜…â˜†ë¡œì œíŒŒìŠ¤íƒ€ ë ˆì‹œí”¼â˜†â˜…â˜†\n\n");
+        printf("ë ˆì‹œí”¼ ìž¬ë£Œ : ìƒˆìš°, ë¬¼, ì†Œê¸ˆ, í›„ì¶”, ê³ ì¶”ê°€ë£¨, ë§ˆëŠ˜, ì–‘íŒŒ, ë¡œì œì†ŒìŠ¤\n");
+        char str[] = "ë ˆì‹œí”¼ ìž¬ë£Œ : ìƒˆìš°, ë¬¼, ì†Œê¸ˆ, í›„ì¶”, ê³ ì¶”ê°€ë£¨, ë§ˆëŠ˜, ì–‘íŒŒ, ë¡œì œì†ŒìŠ¤";
 
-        printf(ANSI_COLOR_YELLOW "NOW : »õ¿ì (¼Ò±Ý.ÈÄÃß ¾à°£, °íÃß°¡·ç 1¼ù°¥ ³Ö°í ¹ö¹«¸®±â)" ANSI_COLOR_RESET "\n");
-        printf("NEXT : ÆÄ½ºÅ¸¸éÀº ¹°¿¡ ¼Ò±Ý ³Ö°í 9ºÐµ¿¾È ÀÍÈ÷±â\n");
+        printf(ANSI_COLOR_YELLOW "NOW : ìƒˆìš° (ì†Œê¸ˆ.í›„ì¶” ì•½ê°„, ê³ ì¶”ê°€ë£¨ 1ìˆŸê°ˆ ë„£ê³  ë²„ë¬´ë¦¬ê¸°)" ANSI_COLOR_RESET "\n");
+        printf("NEXT : íŒŒìŠ¤íƒ€ë©´ì€ ë¬¼ì— ì†Œê¸ˆ ë„£ê³  9ë¶„ë™ì•ˆ ìµížˆê¸°\n");
         voice();
         Time1(10);
-        printf("\n%s\n", str);  // ¿©±â±îÁö »õ¿ì
+        printf("\n%s\n", str);  // ì—¬ê¸°ê¹Œì§€ ìƒˆìš°
 
-        printf(ANSI_COLOR_YELLOW "NOW : ÆÄ½ºÅ¸¸éÀº ¹°¿¡ ¼Ò±Ý ³Ö°í 9ºÐµ¿¾È ÀÍÈ÷±â" ANSI_COLOR_RESET "\n");
-        printf("NEXT : ¸¶´Ã ½ä¾î¼­ ºº±â\n");
+        printf(ANSI_COLOR_YELLOW "NOW : íŒŒìŠ¤íƒ€ë©´ì€ ë¬¼ì— ì†Œê¸ˆ ë„£ê³  9ë¶„ë™ì•ˆ ìµížˆê¸°" ANSI_COLOR_RESET "\n");
+        printf("NEXT : ë§ˆëŠ˜ ì°ì–´ì„œ ë³¶ê¸°\n");
         voice1();
-        char remove1[] = "¹°, ";
+        char remove1[] = "ë¬¼, ";
         Eliminate(str, remove1);
         Time1(540);
-        printf("\n%s\n", str);  // ¿©±â±îÁö ¸é »î±â
+        printf("\n%s\n", str);  // ì—¬ê¸°ê¹Œì§€ ë©´ ì‚¶ê¸°
 
-        printf(ANSI_COLOR_YELLOW "NOW : ¸¶´Ã ½ä¾î¼­ ºº±â" ANSI_COLOR_RESET "\n");
-        printf("NEXT : ¾çÆÄ 1/4°³ ºº±â");
+        printf(ANSI_COLOR_YELLOW "NOW : ë§ˆëŠ˜ ì°ì–´ì„œ ë³¶ê¸°" ANSI_COLOR_RESET "\n");
+        printf("NEXT : ì–‘íŒŒ 1/4ê°œ ë³¶ê¸°");
         voice3();
-        char remove2[] = "¸¶´Ã, ";
+        char remove2[] = "ë§ˆëŠ˜, ";
         Eliminate(str, remove2);
         Time1(60);
-        printf("\n%s\n", str);  // ¸¶´Ã ½ä¾î¼­ ºº±â
+        printf("\n%s\n", str);  // ë§ˆëŠ˜ ì°ì–´ì„œ ë³¶ê¸°
 
-        printf(ANSI_COLOR_YELLOW"NOW : ¾çÆÄ 1/4°³ ºº±â"ANSI_COLOR_RESET "\n");
-        printf("NEXT : »õ¿ì°¡ ÀÍÀ» ¶§±îÁö »õ¿ìºº±â\n");
+        printf(ANSI_COLOR_YELLOW"NOW : ì–‘íŒŒ 1/4ê°œ ë³¶ê¸°"ANSI_COLOR_RESET "\n");
+        printf("NEXT : ìƒˆìš°ê°€ ìµì„ ë•Œê¹Œì§€ ìƒˆìš°ë³¶ê¸°\n");
         voice4();
-        char remove3[] = "¾çÆÄ, ";
+        char remove3[] = "ì–‘íŒŒ, ";
         Eliminate(str, remove3);
         Time1(90);
-        printf("\n%s\n", str);  // ¾çÆÄ 1/4°³ ºº±â
+        printf("\n%s\n", str);  // ì–‘íŒŒ 1/4ê°œ ë³¶ê¸°
 
-        printf(ANSI_COLOR_YELLOW "NOW : »õ¿ì°¡ ÀÍÀ» ¶§±îÁö »õ¿ìºº±â" ANSI_COLOR_RESET "\n");
-        printf("NEXT : ·ÎÁ¦¼Ò½º ³Ö°í ºº±â\n");
+        printf(ANSI_COLOR_YELLOW "NOW : ìƒˆìš°ê°€ ìµì„ ë•Œê¹Œì§€ ìƒˆìš°ë³¶ê¸°" ANSI_COLOR_RESET "\n");
+        printf("NEXT : ë¡œì œì†ŒìŠ¤ ë„£ê³  ë³¶ê¸°\n");
         voice5();
-        char remove4[] = "»õ¿ì, ";
+        char remove4[] = "ìƒˆìš°, ";
         Eliminate(str, remove4);
         Time1(90);
-        printf("\n%s\n", str);  // »õ¿ìºº±â
+        printf("\n%s\n", str);  // ìƒˆìš°ë³¶ê¸°
 
-        printf(ANSI_COLOR_YELLOW "NOW : ·ÎÁ¦¼Ò½º ³Ö°í ºº±â" ANSI_COLOR_RESET "\n");
-        printf("NEXT : ¼Ò±Ý, ÈÄÃß ¾à°£ ³Ö±â");
+        printf(ANSI_COLOR_YELLOW "NOW : ë¡œì œì†ŒìŠ¤ ë„£ê³  ë³¶ê¸°" ANSI_COLOR_RESET "\n");
+        printf("NEXT : ì†Œê¸ˆ, í›„ì¶” ì•½ê°„ ë„£ê¸°");
         voice6();
-        char remove5[] = "·ÎÁ¦¼Ò½º";
+        char remove5[] = "ë¡œì œì†ŒìŠ¤";
         Eliminate(str, remove5);
         Time1(240);
-        printf("\n%s\n", str);  // ·ÎÁ¦¼Ò½º ºº±â
+        printf("\n%s\n", str);  // ë¡œì œì†ŒìŠ¤ ë³¶ê¸°
 
-        printf(ANSI_COLOR_YELLOW "NOW : ¼Ò±Ý, ÈÄÃß ¾à°£ ³Ö±â"ANSI_COLOR_RESET "\n");
-        printf("NEXT : ¿Ï¼º!");
+        printf(ANSI_COLOR_YELLOW "NOW : ì†Œê¸ˆ, í›„ì¶” ì•½ê°„ ë„£ê¸°"ANSI_COLOR_RESET "\n");
+        printf("NEXT : ì™„ì„±!");
         voice7();
-        char remove6[] = "¼Ò±Ý, ÈÄÃß, ";
+        char remove6[] = "ì†Œê¸ˆ, í›„ì¶”, ";
         Eliminate(str, remove6);
-        Time1(10);  // ·ÎÁ¦¼Ò½º ºº±â
-        printf("\nÀç·á¸¦ ´Ù »ç¿ëÇÏ¼Ì½À´Ï´Ù!\n");
+        Time1(10);  // ë¡œì œì†ŒìŠ¤ ë³¶ê¸°
+        printf("\nìž¬ë£Œë¥¼ ë‹¤ ì‚¬ìš©í•˜ì…¨ìŠµë‹ˆë‹¤!\n");
 
-        printf(ANSI_COLOR_BLUE "¡Ù¡Ú¡Ù·ÎÁ¦ÆÄ½ºÅ¸ ¿Ï¼º¡Ù¡Ú¡Ù" ANSI_COLOR_RESET "\n");
+        printf(ANSI_COLOR_BLUE "â˜†â˜…â˜†ë¡œì œíŒŒìŠ¤íƒ€ ì™„ì„±â˜†â˜…â˜†" ANSI_COLOR_RESET "\n");
     }
     else
         printf(" ");
 
 }
-//±èÄ¡ººÀ½¹ä ·¹½ÃÇÇ
+//ê¹€ì¹˜ë³¶ìŒë°¥ ë ˆì‹œí”¼
 void kimchibbeumbab(int i)
 {
     if (i == 3)
     {
-        printf("Space¹Ù ÇÑ¹ø ´©¸¦ ½Ã : Å¸ÀÌ¸Ó Á¤Áö\n");
-        printf("Space¹Ù µÎ¹ø ´©¸¦ ½Ã : Å¸ÀÌ¸Ó ´Ù½Ã ½ÇÇà\n");
-        printf("¿À¸¥ÂÊ ¹æÇâÅ° ´©¸¦ ½Ã : Å¸ÀÌ¸Ó °­Á¦ Á¾·á\n");
+        printf("Spaceë°” í•œë²ˆ ëˆ„ë¥¼ ì‹œ : íƒ€ì´ë¨¸ ì •ì§€\n");
+        printf("Spaceë°” ë‘ë²ˆ ëˆ„ë¥¼ ì‹œ : íƒ€ì´ë¨¸ ë‹¤ì‹œ ì‹¤í–‰\n");
+        printf("ì˜¤ë¥¸ìª½ ë°©í–¥í‚¤ ëˆ„ë¥¼ ì‹œ : íƒ€ì´ë¨¸ ê°•ì œ ì¢…ë£Œ\n");
 
-        printf("¡Ù¡Ú¡Ù±èÄ¡ººÀ½¹ä ·¹½ÃÇÇ¡Ù¡Ú¡Ù\n\n");
-        printf("·¹½ÃÇÇ Àç·á : °è¶õ, ½Ä¿ëÀ¯, ÆÄ, ½ºÆÔ, ±èÄ¡, °íÃß°¡·ç, ¼³ÅÁ, ¹ä, °£Àå\n");
-        char str[] = "·¹½ÃÇÇ Àç·á : °è¶õ, ½Ä¿ëÀ¯, ÆÄ, ½ºÆÔ, ±èÄ¡, °íÃß°¡·ç, ¼³ÅÁ, ¹ä, °£Àå";
-        printf(ANSI_COLOR_YELLOW "Now : °è¶õÈÄ¶óÀÌ¸¦ ¸¸µå¼¼¿ä." ANSI_COLOR_RESET "\n");
-        printf("NEXT : ½Ä¿ëÀ¯¿¡ ÆÄ¸¦ ººÀ¸¼¼¿ä.\n");
+        printf("â˜†â˜…â˜†ê¹€ì¹˜ë³¶ìŒë°¥ ë ˆì‹œí”¼â˜†â˜…â˜†\n\n");
+        printf("ë ˆì‹œí”¼ ìž¬ë£Œ : ê³„ëž€, ì‹ìš©ìœ , íŒŒ, ìŠ¤íŒ¸, ê¹€ì¹˜, ê³ ì¶”ê°€ë£¨, ì„¤íƒ•, ë°¥, ê°„ìž¥\n");
+        char str[] = "ë ˆì‹œí”¼ ìž¬ë£Œ : ê³„ëž€, ì‹ìš©ìœ , íŒŒ, ìŠ¤íŒ¸, ê¹€ì¹˜, ê³ ì¶”ê°€ë£¨, ì„¤íƒ•, ë°¥, ê°„ìž¥";
+        printf(ANSI_COLOR_YELLOW "Now : ê³„ëž€í›„ë¼ì´ë¥¼ ë§Œë“œì„¸ìš”." ANSI_COLOR_RESET "\n");
+        printf("NEXT : ì‹ìš©ìœ ì— íŒŒë¥¼ ë³¶ìœ¼ì„¸ìš”.\n");
         voice9();
-        char remove9[] = "°è¶õ, ";
+        char remove9[] = "ê³„ëž€, ";
         Eliminate(str, remove9);
         Time1(10);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : ½Ä¿ëÀ¯¿¡ ÆÄ¸¦ ººÀ¸¼¼¿ä." ANSI_COLOR_RESET "\n");
-        printf("NEXT : ÆÄ°¡ ¾î´ÀÁ¤µµ ºº¾ÆÁ³À¸¸é ½ºÆÔÀ» ³Ö°í ºº¾ÆÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW "Now : ì‹ìš©ìœ ì— íŒŒë¥¼ ë³¶ìœ¼ì„¸ìš”." ANSI_COLOR_RESET "\n");
+        printf("NEXT : íŒŒê°€ ì–´ëŠì •ë„ ë³¶ì•„ì¡Œìœ¼ë©´ ìŠ¤íŒ¸ì„ ë„£ê³  ë³¶ì•„ì£¼ì„¸ìš”.\n");
         voice10();
-        char remove10[] = "½Ä¿ëÀ¯, ÆÄ, ";
+        char remove10[] = "ì‹ìš©ìœ , íŒŒ, ";
         Eliminate(str, remove10);
         Time1(10);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : ÆÄ°¡ ¾î´ÀÁ¤µµ ºº¾ÆÁ³À¸¸é ½ºÆÔÀ» ³Ö°í ºº¾ÆÁÖ¼¼¿ä." ANSI_COLOR_RESET "\n");
-        printf("NEXT : ±èÄ¡¸¦ ³Ö°í ºº¾ÆÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW "Now : íŒŒê°€ ì–´ëŠì •ë„ ë³¶ì•„ì¡Œìœ¼ë©´ ìŠ¤íŒ¸ì„ ë„£ê³  ë³¶ì•„ì£¼ì„¸ìš”." ANSI_COLOR_RESET "\n");
+        printf("NEXT : ê¹€ì¹˜ë¥¼ ë„£ê³  ë³¶ì•„ì£¼ì„¸ìš”.\n");
         voice11();
-        char remove11[] = "½ºÆÔ, ";
+        char remove11[] = "ìŠ¤íŒ¸, ";
         Eliminate(str, remove11);
         Time1(10);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : ±èÄ¡¸¦ ³Ö°í ºº¾ÆÁÖ¼¼¿ä." ANSI_COLOR_RESET "\n");
-        printf("NEXT : °íÃß°¡·ç ¹Ý½ºÇ¬, ¼³ÅÁ 1½ºÇ¬ ³Ö°í ÁßºÒ¿¡¼­ °è¼Ó ºº¾ÆÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW "Now : ê¹€ì¹˜ë¥¼ ë„£ê³  ë³¶ì•„ì£¼ì„¸ìš”." ANSI_COLOR_RESET "\n");
+        printf("NEXT : ê³ ì¶”ê°€ë£¨ ë°˜ìŠ¤í‘¼, ì„¤íƒ• 1ìŠ¤í‘¼ ë„£ê³  ì¤‘ë¶ˆì—ì„œ ê³„ì† ë³¶ì•„ì£¼ì„¸ìš”.\n");
         voice12();
-        char remove12[] = "±èÄ¡, ";
+        char remove12[] = "ê¹€ì¹˜, ";
         Eliminate(str, remove12);
         Time1(10);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : °íÃß°¡·ç ¹Ý½ºÇ¬, ¼³ÅÁ 1½ºÇ¬ ³Ö°í ÁßºÒ¿¡¼­ °è¼Ó ºº¾ÆÁÖ¼¼¿ä." ANSI_COLOR_RESET "\n");
-        printf("NEXT : ±èÄ¡°¡ ºº¾ÆÁö¸é ¾àºÒ·Î ÁÙÀÌ°í ¹äÀ» ³Ö¾îÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW "Now : ê³ ì¶”ê°€ë£¨ ë°˜ìŠ¤í‘¼, ì„¤íƒ• 1ìŠ¤í‘¼ ë„£ê³  ì¤‘ë¶ˆì—ì„œ ê³„ì† ë³¶ì•„ì£¼ì„¸ìš”." ANSI_COLOR_RESET "\n");
+        printf("NEXT : ê¹€ì¹˜ê°€ ë³¶ì•„ì§€ë©´ ì•½ë¶ˆë¡œ ì¤„ì´ê³  ë°¥ì„ ë„£ì–´ì£¼ì„¸ìš”.\n");
         voice13();
-        char remove13[] = "°íÃß°¡·ç, ¼³ÅÁ";
+        char remove13[] = "ê³ ì¶”ê°€ë£¨, ì„¤íƒ•";
         Eliminate(str, remove13);
         Time1(10);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : ±èÄ¡°¡ ºº¾ÆÁö¸é ¾àºÒ·Î ÁÙÀÌ°í ¹äÀ» ³Ö¾îÁÖ¼¼¿ä." ANSI_COLOR_RESET "\n");
-        printf("NEXT : °£Àå 1½ºÇ¬À» ´­·È´Ù°¡ °°ÀÌ ºº¾ÆÁÖ¼¼¿ä.\n");
+        printf(ANSI_COLOR_YELLOW "Now : ê¹€ì¹˜ê°€ ë³¶ì•„ì§€ë©´ ì•½ë¶ˆë¡œ ì¤„ì´ê³  ë°¥ì„ ë„£ì–´ì£¼ì„¸ìš”." ANSI_COLOR_RESET "\n");
+        printf("NEXT : ê°„ìž¥ 1ìŠ¤í‘¼ì„ ëˆŒë ¸ë‹¤ê°€ ê°™ì´ ë³¶ì•„ì£¼ì„¸ìš”.\n");
         voice14();
-        char remove14[] = "¹ä, ";
+        char remove14[] = "ë°¥, ";
         Eliminate(str, remove14);
         Time1(10);
         printf("\n%s\n", str);
 
-        printf(ANSI_COLOR_YELLOW "Now : °£Àå 1½ºÇ¬À» ´­·È´Ù°¡ °°ÀÌ ºº¾ÆÁÖ¼¼¿ä." ANSI_COLOR_RESET "\n");
-        printf("NEXT : ¿Ï¼º!\n");
+        printf(ANSI_COLOR_YELLOW "Now : ê°„ìž¥ 1ìŠ¤í‘¼ì„ ëˆŒë ¸ë‹¤ê°€ ê°™ì´ ë³¶ì•„ì£¼ì„¸ìš”." ANSI_COLOR_RESET "\n");
+        printf("NEXT : ì™„ì„±!\n");
         voice15();
-        char remove15[] = "°£Àå";
+        char remove15[] = "ê°„ìž¥";
         Eliminate(str, remove15);
         Time1(10);
-        printf("\nÀç·á¸¦ ´Ù »ç¿ëÇÏ¼Ì½À´Ï´Ù!\n");
+        printf("\nìž¬ë£Œë¥¼ ë‹¤ ì‚¬ìš©í•˜ì…¨ìŠµë‹ˆë‹¤!\n");
 
-        printf(ANSI_COLOR_BLUE "¡Ù¡Ú¡Ù·ÎÁ¦ÆÄ½ºÅ¸ ¿Ï¼º¡Ù¡Ú¡Ù" ANSI_COLOR_RESET "\n");
+        printf(ANSI_COLOR_BLUE "â˜†â˜…â˜†ë¡œì œíŒŒìŠ¤íƒ€ ì™„ì„±â˜†â˜…â˜†" ANSI_COLOR_RESET "\n");
     }
 
     else
@@ -811,13 +811,13 @@ void kimchibbeumbab(int i)
 int main()
 {
     int i;
-    printf("1.°è¶õÂò 2.·ÎÁ¦ÆÄ½ºÅ¸ 3.±èÄ¡ººÀ½¹ä Áß ¹øÈ£ ¼±ÅÃ: ");
+    printf("1.ê³„ëž€ì°œ 2.ë¡œì œíŒŒìŠ¤íƒ€ 3.ê¹€ì¹˜ë³¶ìŒë°¥ ì¤‘ ë²ˆí˜¸ ì„ íƒ: ");
     scanf("%d", &i);
     gyeran_jjim(i);
     roze_pasta(i);
     kimchibbeumbab(i);
     if (i > 3 || i < 1)
-        printf("1,2,3Áß¿¡ ÀÔ·ÂÇÏ¼¼¿ä\n");
+        printf("1,2,3ì¤‘ì— ìž…ë ¥í•˜ì„¸ìš”\n");
 
     return 0;
 }
