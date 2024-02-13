@@ -1,0 +1,1 @@
+CreateObject("SAPI.SpVoice").Speak "계란물에 당근, 파를 넣어주세� "

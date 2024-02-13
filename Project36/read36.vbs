@@ -1,0 +1,1 @@
+CreateObject("SAPI.SpVoice").Speak "전자레인지를 강으로 2분 돌려주세요

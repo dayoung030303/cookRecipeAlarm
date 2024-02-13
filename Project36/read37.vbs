@@ -1,0 +1,1 @@
+CreateObject("SAPI.SpVoice").Speak "섞어준 다음에 다시 전자레인지에 3분 돌려주세요
